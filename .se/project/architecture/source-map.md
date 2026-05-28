@@ -16,6 +16,8 @@
 | `se.testing` 和 `se.quality` 已补齐可复制的 `project.template/`。 | 本次 `feature/self-bootstrap` 文件树 | 已确认 |
 | 当前仓库通过根 `package.json` 暴露 architecture、testing 和 quality 三个验证入口。 | `package.json` | 已确认 |
 | 架构基线由顶层文档和四个能力模块文档组成。 | `.se/project/architecture/ARCHITECTURE.md`, `.se/project/architecture/modules/*.md` | 已确认 |
+| 框架本体变更按 `se.{capability}/` 到 `.se/framework/{capability}/` 的方向同步，`.se/framework/{capability}/` 是可替换安装快照。 | `README.md`, `AGENTS.md`, `.se/project/architecture/ARCHITECTURE.md` | 已确认 |
+| `.se/project/{capability}/` 的当前项目状态不反向同步到框架本体或安装快照。 | `README.md`, `.se/project/architecture/ARCHITECTURE.md` | 已确认 |
 | `se.architecture` 项目态模块文档描述架构基线、模块文档、术语、来源和决策记录。 | `.se/project/architecture/modules/architecture.md`, `se.architecture/README.md` | 已确认 |
 | `se.testing` 项目态模块文档描述测试策略、测试意图、执行层和共享测试支撑。 | `.se/project/architecture/modules/testing.md`, `se.testing/README.md` | 已确认 |
 | `se.quality` 项目态模块文档描述质量配置、发现项、证据、报告和历史产物。 | `.se/project/architecture/modules/quality.md`, `se.quality/README.md` | 已确认 |

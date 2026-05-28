@@ -6,6 +6,7 @@
 | Framework | Capability 的可复制定义，包括 prompt、guide、meta、tool 和 template。 | README.md, AGENTS.md |
 | Framework Copy | 安装到当前项目的框架副本，位于 `.se/framework/{capability}/`。 | README.md |
 | Framework Layer | 仓库根目录下保存框架本体的 `se.*` 层。 | README.md |
+| Framework Synchronization | 将 `se.{capability}/` 的框架本体变更复制到 `.se/framework/{capability}/` 安装快照的过程。 | `.se/project/architecture/ARCHITECTURE.md` |
 | Project Layer | 当前仓库自举后保存项目态工程状态的 `.se/` 层。 | README.md |
 | Project State | 当前项目可提交、可恢复、可审计的稳定工程状态，位于 `.se/project/{capability}/`。 | README.md |
 | Runtime Artifact | 单次 Agent 任务中的草稿、长日志和中间产物，位于 `.se/runtime/{task}/`。 | README.md |

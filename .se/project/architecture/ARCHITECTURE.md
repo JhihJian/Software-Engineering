@@ -87,10 +87,21 @@ Agent 执行某个能力时遵守以下顺序：
 
 当前仓库中，`se.*` 是框架本体，`.se/framework/*` 是安装快照。当框架本体变化后，需要同步：
 
-1. 更新 `se.{capability}/`。
-2. 复制到 `.se/framework/{capability}/`。
-3. 如果变化影响初始化行为，同步检查 `project.template/` 和 `.se/project/{capability}/`。
-4. 运行对应验证命令。
+1. 只以 `se.{capability}/` 作为框架本体的修改入口，不直接把 `.se/framework/{capability}/` 当作长期设计源修改。
+2. 完成框架本体修改后，将对应 `se.{capability}/` 完整复制到 `.se/framework/{capability}/`，形成当前项目安装快照。
+3. 如果变化影响初始化行为、项目态文件结构或默认配置，同步检查 `project.template/` 与 `.se/project/{capability}/` 是否需要迁移。
+4. 如果只修改 `.se/project/{capability}/` 中的当前项目状态，不反向同步到 `se.{capability}/` 或 `.se/framework/{capability}/`。
+5. 同步前后用 `git diff -- se.{capability} .se/framework/{capability}` 或等价方式确认差异范围；保留差异时必须能解释为当前项目状态或运行产物边界。
+6. 运行对应验证命令，至少覆盖被同步 capability 的结构检查；跨 capability 契约变化还应运行相关根 npm scripts。
+
+同步方向固定为：
+
+```text
+se.{capability}/ -> .se/framework/{capability}/
+project.template/ -> .se/project/{capability}/  # 仅在初始化或明确迁移时
+```
+
+`.se/framework/{capability}/` 是可替换快照，不保存当前项目运行历史。当前项目的证据、报告、问题台账和人工决策只写入 `.se/project/{capability}/`；运行草稿和长日志只写入 `.se/runtime/{task}/`。
 
 ### Quality And Evolution Flow
 

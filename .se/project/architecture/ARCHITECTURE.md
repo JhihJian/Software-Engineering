@@ -41,8 +41,8 @@
 | Framework Copy | 当前项目安装的框架快照。 | `.se/framework/{capability}/` |
 | Project State | 当前项目可提交、可恢复、可审计的稳定状态。 | `.se/project/{capability}/` |
 | Runtime Artifact | 单次 Agent 运行中的草稿、长日志和中间产物。 | `.se/runtime/{task}/` |
-| Stable Entry | Agent 每轮任务的稳定入口。 | `framework/prompts/*.md` |
-| Workflow Guide | Agent 执行当前能力时读取的运行流程。 | `framework/guides/workflow.md` |
+| Stable Entry | Agent 每轮任务读取的稳定入口，由 prompt 指向后续 workflow。 | `framework/prompts/*.md` |
+| Workflow Guide | Agent 按 prompt 指向读取的运行流程。 | `framework/guides/workflow.md` |
 | Project Template | 初始化项目态的最小模板。 | `project.template/` |
 | Evidence | 检查、报告或架构结论背后的来源材料。 | `.se/project/**/evidence/`, `.se/project/architecture/source-map.md` |
 
@@ -107,10 +107,11 @@ project.template/ -> .se/project/{capability}/  # 仅在初始化或明确迁移
 
 质量和演进形成后续建设闭环：
 
-1. `se.quality` 基于配置和证据发现项目结构问题。
-2. 问题进入 `.se/project/evolution/registry/PROBLEM_REGISTRY.md`。
-3. `se.evolution` 选择问题，调度修复、验证、归档和人工裁决。
-4. 架构、测试、质量文档随修复同步更新。
+1. `se.quality` 基于配置和证据发现项目结构问题，只产出 report 和 evidence。
+2. `se.evolution` 从 quality report 和 evidence 导入或登记问题到 `.se/project/evolution/registry/PROBLEM_REGISTRY.md`。
+3. 只有用户明确要求时，`se.quality` 才可以执行问题登记动作。
+4. `se.evolution` 选择问题，调度修复、验证、归档和人工裁决。
+5. 架构、测试、质量文档随修复同步更新。
 
 ## Security And Permissions
 

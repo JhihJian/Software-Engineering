@@ -1,0 +1,9 @@
+{
+  "sourceRoots": [],
+  "requiredPackageScripts": [],
+  "fileSize": {
+    "warningLimit": 500,
+    "hardLimit": 800
+  },
+  "forbiddenVocabulary": []
+}

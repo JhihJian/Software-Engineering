@@ -1,0 +1,16 @@
+{
+  "name": "software-engineering-framework",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "architecture:check": "ts-node se.architecture/framework/tools/lint-architecture.ts",
+    "test:intentions": "ts-node se.testing/framework/tools/validate-intentions.ts",
+    "quality:check": "ts-node se.quality/framework/tools/check.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3",
+    "yaml": "^2.8.0"
+  }
+}

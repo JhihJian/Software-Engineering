@@ -1,0 +1,29 @@
+# Minimal project-local adaptation template.
+
+project:
+  name: example-project
+  root: .
+
+docs:
+  architecture: ARCHITECTURE.md
+  test_architecture: TEST_ARCHITECTURE.md
+  test_guide: TEST.md
+
+verification:
+  default_check: echo "TODO: replace with the project verification command"
+
+state:
+  registry: project/registry/PROBLEM_REGISTRY.md
+  decisions: project/decisions
+  runs:
+    inner: project/runs/inner
+    operator: project/runs/operator
+  evidence: project/evidence
+  archive: project/archive
+  operator_guidance: project/operator-guidance
+
+framework:
+  loop_prompt: framework/prompts/loop.md
+  dev_agent_prompt: framework/prompts/agent-dev.md
+  verify_agent_prompt: framework/prompts/agent-verify.md
+  operator_prompt: framework/prompts/operator.md
